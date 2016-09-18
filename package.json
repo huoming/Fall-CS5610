@@ -1,0 +1,25 @@
+{
+  "name": "web-dev",
+  "version": "1.0.0",
+  "description": "cs5610 fall 2016",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huoming/Fall-CS5610.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huoming/Fall-CS5610/issues"
+  },
+  "homepage": "https://github.com/huoming/Fall-CS5610#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.10",
+    "mongoose": "^4.6.0"
+  }
+}
