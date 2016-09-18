@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WhiteBoardApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Title</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--//using cdn-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+    <script src="app.js"></script>
+</head>
+<body>
+<h2>Todo Example</h2>
+
+<div>
+    <p>
+        The &lt;div&gt;tag is nothing more than a container.
+    </p>
+</div>
+
+<div ng-controller="TextController">
+    <input ng-model="todo_title" placeholder="Enter title..."/>
+    <input ng-model="todo_description" placeholder="Enter description..."/>
+
+    <button ng-click="CreateTodoClicked()">
+        New Todo
+    </button>
+    <button ng-click="UpdateTodoClicked()">
+        Update
+    </button>
+    {{todo_title}}
+    {{todos}}
+
+    <table>
+        <thead>
+        <tr>
+            <td>Index</td>
+            <td>Title</td>
+            <td>Description</td>
+            <td>Del</td>
+            <td>Select</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in todos">
+            <td>{{$index}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>
+                <button ng-click="DeleteTodoClicked($index)">Delete</button>
+            </td>
+            <td>
+                <button ng-click="SeleteTodoClicked($index)">Select</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
