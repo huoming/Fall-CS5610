@@ -58,7 +58,7 @@ app.put('/todo/:id', function(req, res){
     //res.send(todos);
 });
 
-app.use(express.static(__dirname+'/todo_example'));
+app.use(express.static(__dirname+'/public'));
 
 var ipaddress = '127.0.0.1';
 var port      = 3000;
