@@ -17,15 +17,46 @@ app.use(bodyParser.urlencoded({ extended: true }));
  });
  */
 
-//callback function
-app.get('/todo/:title', handleTodo);
+var  todos = [];
+
+app.get('/todo', function(req, res){
+    res.send(todos);
+});
+
+app.get('/todo/:title/:description', handleTodo);
 
 function handleTodo(req, res)
 {
-    console.log(req.params['title']);
-    res.send('handle todo!');
+    var title = req.params['title'];
+    var description = req.params['description'];
+
+   /* console.log(req.params['title']);
+    console.log(req.params['description']);*/
+
+    var todo_item = { title:title, description:description};
+    todos.push(todo_item);
+
+    res.send(todos);
 }
 
+app.delete('/todo/:id', function(req, res){
+    var item_index = req.params['id'];
+    todos.splice(item_index, 1);
+
+    res.send(todos);
+});
+
+app.put('/todo/:id', function(req, res){
+    var item_index = req.params['id'];
+
+    var new_item = req.body;
+
+    todos[item_index].title = new_item.title;
+    todos[item_index].description = new_item.description;
+
+    res.json(todos);
+    //res.send(todos);
+});
 
 app.use(express.static(__dirname+'/todo_example'));
 
