@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <!--//using cdn-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+
+</head>
+<body style="overflow: hidden; margin-top: 50px">
+
+<!--Body header and fixed to top-->
+<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <!--Left header and fixed to top-->
+                <div class="col-sm-4 hidden-xs">
+                    <div class="navbar-text pull-left">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Left</a>
+                    </div>
+                    <div class="navbar-text pull-right">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!--Right header and fixed to top-->
+                <div class="col-sm-8">
+                    <div class="navbar-text pull-left">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-text pull-right">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Right</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</nav>
+
+<!--Body Content-->
+<div class="row container-fluid" style="padding-top: 10px">
+        <!--Left Menu bar-->
+        <div class="col-sm-4 hidden-xs">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#">Item One</a></li>
+                <li class="list-group-item">Item Two</li>
+                <li class="list-group-item">Item Three</li>
+                <li class="list-group-item">Item Four</li>
+            </ul>
+        </div>
+
+        <!--Right Content-->
+        <div class="col-sm-8">
+            <form>
+                <div class="form-group">
+                    <label for="username">username</label>
+                    <input type="text" class="form-control" id="username" placeholder="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="verify">Verify Password</label>
+                    <input type="password" class="form-control" id="verify" placeholder="Verify Password">
+                </div>
+                <a href="profile.html" class="btn btn-primary btn-block">Register</a>
+                <a href="register.html" class="btn btn-danger btn-block">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+<!--Body footer and fixed to bottom-->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="row navbar-text" style="width: 100%">
+                <!--Left header and fixed to bottom-->
+                <div class="col-sm-4 hidden-xs">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </a>
+                </div>
+
+                <!--Right header and fixed to bottom-->
+                <div class="col-sm-8">
+                        <a href="#" class="pull-right">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </a>
+                </div>
+            </div>
+</nav>
+</body>
+</html>
