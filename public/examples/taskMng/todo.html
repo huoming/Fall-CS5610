@@ -1,0 +1,39 @@
+<div class="table-responsive" ng-controller="TextController">
+    <input ng-model="todo_title" placeholder="Enter title..."/>
+    <input ng-model="todo_description" placeholder="Enter description..."/>
+
+    <button ng-click="CreateTodoClicked()">
+        New Todo
+    </button>
+    <button ng-click="UpdateTodoClicked()">
+        Update
+    </button>
+    <!-- {{todo_title}}
+     {{todos}}-->
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Index</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Del</th>
+            <!--<th>&nbsp;</th>-->
+            <th>Select</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in todos">
+            <td>{{$index}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>
+                <button ng-click="DeleteTodoClicked($index)">Delete</button>
+            </td>
+            <td>
+                <button ng-click="SeleteTodoClicked($index)">Select</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

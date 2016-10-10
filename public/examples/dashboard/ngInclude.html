@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!--<link href="css/dashboard.css" rel="stylesheet">-->
+
+    <!--//using cdn-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+
+</head>
+<body>
+
+<h1>ng-include</h1>
+<ng-include src="'examples/dashboard/leftside.html'"></ng-include>
+<div ng-include src="'examples/dashboard/rightside.html'"></div>
+<!--Body Content-->
+<div class="row">
+    <!--Left Menu bar-->
+    <div class="col-sm-4">
+
+    </div>
+
+    <!--Right Content-->
+    <div class="col-sm-8">
+
+    </div>
+</div>
+
+</body>
+</html>
