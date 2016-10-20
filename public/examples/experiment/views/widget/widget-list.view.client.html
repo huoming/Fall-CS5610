@@ -1,0 +1,12 @@
+<div ng-switch="widget.widgetType" ng-repeat="widget in model.widgets">
+    <div ng-switch="widget.size" ng-switch-when="HEADER">
+        <h1 ng-switch-when="1">{{widget.text}}</h1>
+        <h2 ng-switch-when="2">{{widget.text}}</h2>
+    </div>
+    <div ng-switch-when="YOUTUBE">
+        <iframe width="560" height="280" ng-src="{{model.checkUrl(widget.url)}}" frameborder="1"></iframe>
+    </div>
+    <div ng-switch-when="IMAGE"></div>
+    <div ng-switch-when="HTML" ng-bind-html="model.checkHtml(widget.text)"></div>
+</div>
+

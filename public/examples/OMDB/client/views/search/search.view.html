@@ -1,0 +1,35 @@
+<h2>Seach</h2>
+<input ng-model="model.movie.title" class="form-control" placeholder="Batman"/>
+<button ng-click="model.search(model.movie)" class="btn btn-primary btn-block">Search
+</button>
+<!--If the search is successful, do down below
+    ng-show : hide and show the content based on expression, content is part of dom, use class style to show/hide
+    ng-if : the content is not injected into the dom, unless the expression is true
+            The stuff is added to the dom, if model.data is true ><-->
+<div ng-if="model.data">
+    <h3>Search Results</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Poster</th>
+            <th>Title</th>
+            <th>IMDB</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="movie in model.data.Search">
+            <td>
+                <img ng-src="{{movie.Poster}}"
+                     height="100px"/>
+            </td>
+            <td>
+                <!--make the title as hyperlink, to visit the detail><-->
+                <a href="#/details/{{movie.imdbID}}">
+                    {{movie.Title}}
+                </a>
+            </td>
+            <td>{{movie.imdbID}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
