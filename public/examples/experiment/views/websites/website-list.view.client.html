@@ -49,7 +49,7 @@
         <div class="col-sm-4 hidden-xs">
             <ul  class="list-group">
                 <li ng-repeat="item in model.websites" class="list-group-item">
-                    <a href="#">{{item.name}}</a>
+                    <a href="#/user/{{model.userId}}/website/{{item._id}}	">{{item.name}}</a>
                     <a href="#" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
                     <a href="#" class="pull-right" style="margin-right: 10px"><span class="glyphicon glyphicon-play"></span></a>
                 </li>

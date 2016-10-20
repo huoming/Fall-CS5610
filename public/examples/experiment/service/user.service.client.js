@@ -29,23 +29,16 @@
         return service;
 
         function createUser(user){
-            var last_user_id = users[user.length-1]._id;
-            last_user_id.toString.
-
-            user["_id"] = last_user_id + 1 ;
-
-            users.push(user);
-
-            /*
-             var deferred = $q.defer();
+            /* var deferred = $q.defer();
              $http
              .post('/api/example/experiment/user', user)
              .success(function(response) {
-             deferred.resolve(response);
+                deferred.resolve(response);
              });
-             return deferred.promise;
-            * */
+             return deferred.promise;*/
+            return  $http.post('/api/example/experiment/user', user);
         }
+
         function findAllUsers(callback){ (users);}
         function findUserById(userId){
             for(var i=0; i<users.length; i++){

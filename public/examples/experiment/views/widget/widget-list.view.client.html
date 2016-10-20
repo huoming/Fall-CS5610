@@ -8,5 +8,6 @@
     </div>
     <div ng-switch-when="IMAGE"></div>
     <div ng-switch-when="HTML" ng-bind-html="model.checkHtml(widget.text)"></div>
+    <div ng-src="widget.url | safeUrl"></div>
 </div>
 

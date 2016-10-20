@@ -4,7 +4,7 @@
         .module("WebAppMaker")
         .factory("WebsiteService",WebsiteService);
 
-    function WebsiteService(){
+    function WebsiteService($http){
         var websites = [
             { "_id": "123", "name": "Facebook",    "developerId": "456" },
             { "_id": "234", "name": "Tweeter",     "developerId": "456" },
@@ -29,14 +29,16 @@
         function findAllWebsties(callback){ callback(websties);}
 
         function findWebstieById(webstieId){
-            var web = null;
+           /* var web = null;
             for(var i=0; i<websites.length; i++){
                 if(websites[i]._id == websiteId){
                     web = websites[i];
                     break;
                 }
-            }
-            return web;
+            }*/
+
+
+            return $http.get("/api/example/experiment/webiste/"+webstieId);
         }
 
 

@@ -3,7 +3,16 @@
         .module("WebAppMaker")
         .controller("WidgetListController", WidgetListController)
         .controller("NewWidgetController", NewWidgetController)
-        .controller("EditWidgetController", EditWidgetController);
+        .controller("EditWidgetController", EditWidgetController)
+        .filter("safeUrl", function ($sce, url) {
+            var trusted_urls=[{url:"https://www.youtube.com"}, {url:"http://google.com"}];
+            for(var i in trusted_urls){
+                if(trusted_urls[i].url == url){
+                    return $sce.trustAsResourceUrl(url);
+                }
+            }
+            return false;
+        });
 
     function WidgetListController($routeParams, $sce, WidgetService){
         var vm = this;

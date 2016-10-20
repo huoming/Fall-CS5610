@@ -44,22 +44,22 @@
     }
 
     function RegisterController($location, UserService){
-        var vm = this; // login controller instance
+        var vm = this; // register controller instance
         vm.createUser = createUser;
 
         /* function init(){}
          init();*/
 
         function createUser(){
-            UserService
+           UserService
                 .createUser({
                     username: vm.user.username,
                     password: vm.user.password
                 })
-                .then(function(user){
-                    if(user) {
-                        UserService.setCurrentUser(user);
-                        //var user = user;
+                .then(function(response){
+                    if(response.data) {
+                        //UserService.setCurrentUser(user);
+                        var user = response.data;
                         $location.url("/user/"+user._id);
                     }
                 });
