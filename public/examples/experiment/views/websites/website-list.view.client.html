@@ -16,7 +16,8 @@
                         <a class="navbar-brand" href="#">Websites</a>
                     </div>
                     <div class="navbar-text pull-right">
-                        <a href="#/user/{{model.userId}}/website/new">
+                        <!--<a href="#/user/{{model.userId}}/website/new">-->
+                        <a href="javascript:;" ng-click="model.loadCreateWebsitePage()">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -30,12 +31,12 @@
                         </a>
                     </div>
                     <div class="navbar-text pull-right">
-                        <a href="#">
+                        <a href="" ng-click="model.updateWebsites()">
                             <span class="glyphicon glyphicon-ok"></span>
                         </a>
                     </div>
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">Right</a>
+                        <a class="navbar-brand" href="#">{{model.status}}</a>
                     </div>
 
                 </div>
@@ -46,11 +47,12 @@
 <!--Body Content-->
 <div class="row container-fluid" style="padding-top: 10px">
         <!--Left Menu bar-->
-        <div class="col-sm-4 hidden-xs">
+        <div class="col-sm-4 hidden-xs" style="padding-top: 20px">
             <ul  class="list-group">
                 <li ng-repeat="item in model.websites" class="list-group-item">
-                    <a href="#/user/{{model.userId}}/website/{{item._id}}	">{{item.name}}</a>
-                    <a href="#" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
+                    <!--<a href="#/user/{{model.userId}}/website/{{item._id}}">{{item.name}}</a>-->
+                    <a ng-click="model.editWebsite(item._id)">{{item.name}}</a>
+                    <a href="" ng-click="model.editWebsite(item._id)" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
                     <a href="#" class="pull-right" style="margin-right: 10px"><span class="glyphicon glyphicon-play"></span></a>
                 </li>
             </ul>
@@ -58,7 +60,8 @@
 
         <!--Right Content-->
         <div class="col-sm-8">
-            <div ng-include="'views/websites/website-edit.view.client.html'"></div>
+            <div ng-if="model.edit" ng-include="'views/websites/website-edit.view.client.html'"></div>
+            <div ng-if="!model.edit" ng-include="'views/websites/website-new.view.client.html'"></div>
         </div>
     </div>
 

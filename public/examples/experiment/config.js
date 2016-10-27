@@ -2,7 +2,7 @@
     angular
         .module("WebAppMaker")
         .config(function($routeProvider){
-            //console.log("in config");
+            console.log("in config");
             $routeProvider
                 .when("/profile", {
                     templateUrl:"/examples/experiment/views/user/profile.view.client.html",
@@ -29,15 +29,15 @@
                     controllerAs:"model"
                 })
                 .when("/user/:uid/website/new", {
-                    templateUrl:"/examples/experiment/views/websites/website-new.view.client.html",
+                    templateUrl:"/examples/experiment/views/websites/website-list.view.client.html",
                     controller: "WebsiteListController",
                     controllerAs:"model"
                 })
-                .when("/user/:uid/website/:wid", {
-                    templateUrl:"/examples/experiment/views/websites/website-edit.view.client.html",
+                /*.when("/user/:uid/website/:wid", {
+                    templateUrl:"/examples/experiment/views/websites/website-list.view.client.html",
                     controller: "WebsiteEditController",
                     controllerAs:"model"
-                })
+                })*/
                 .when("/user/:uid/website/:wid/page", {
                     templateUrl:"/examples/experiment/views/websites/website-edit.view.client.html",
                     controller: "PageListController",

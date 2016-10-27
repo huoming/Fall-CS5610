@@ -1,12 +1,12 @@
-<h1>New Websites</h1>
-<form>
+<form ng-controller="NewWebsiteController as model">
     <div class="form-group">
-        <label for="website-name">Name</label>
-        <input type="text" class="form-control" id="website-name" placeholder="Name">
+        <label for="name">Website Name</label>
+        <input ng-model="model.website.name" type="text" class="form-control" id="name" placeholder="Name">
     </div>
+    <input ng-model="model.website.developerId" type="hidden" class="form-control"/>
     <div class="form-group">
-        <label for="website-des">Description</label>
-        <input type="text" class="form-control" id="website-des" placeholder="Description">
+        <label for="description">Website Description</label>
+        <textarea ng-model="model.website.description" class="form-control" id="description" placeholder="Description"></textarea>
     </div>
 </form>
 

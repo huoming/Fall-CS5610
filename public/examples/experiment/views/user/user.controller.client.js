@@ -21,7 +21,7 @@
          init();*/
 
         function login(){
-            UserService
+           UserService
                 .login({
                     username: vm.user.username,
                     password: vm.user.password
@@ -34,13 +34,6 @@
                     }
                 });
         }
-        /*function login(){
-            UserService.findUserByCredentials(vm.user.username, vm.user.password, function(user){
-                if(user != null){
-                    $location.url("/user/"+user._id);
-                }
-            });
-        }*/
     }
 
     function RegisterController($location, UserService){
