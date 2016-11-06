@@ -17,8 +17,7 @@
 <body ng-controller="SampleController as model">
 <div jga-sortable
      jga-sortable-callback="model.sortItem(start, end)">
-    <div ng-repeat="item in model.items"
-         class="row jga-bg-highlight-on-hover" style="padding: 8px">
+    <div ng-repeat="item in model.items"  class="row jga-bg-highlight-on-hover" style="padding: 8px">
         <div class="col-xs-10">
             <ul>{{item.first}}</ul>
             <ul>{{item.last}}</ul>

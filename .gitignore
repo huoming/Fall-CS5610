@@ -1,4 +1,6 @@
 node_modules
+
 .idea
 id_rsa
+
 id_rsa.pub

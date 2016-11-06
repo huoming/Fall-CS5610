@@ -18,14 +18,19 @@
         vm.sortItem = sortItem;
 
         function sortItem(start, end) {
+            //sortWidgets
+            //WidgetService.sortWidget(start, end);
+           /* $http.put("api/page/:pageId/widget?initial="+start+"&final="+end);
+
+            var start = req.query.initial;
+            var end =  req.query.final*/
+
+            app.put("api/page/:pageId/widget");
+
             console.log("start: " + start);
             console.log("end: " + end);
 
-            var moved = vm.items.splice(start, 1)[0];
-            //var moved = vm.items.splice(start, 1);
-            console.log("moved: " + moved.first);
-
-            vm.items.splice(end, 0,moved );
+            vm.items.splice(end, 0, vm.items.splice(start, 1)[0] );
 
             for(var i in vm.items){
                 console.log(vm.items[i].first);

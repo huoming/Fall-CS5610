@@ -17,7 +17,7 @@
 
         var service = {
             createWebstie : createWebstie,
-            findAllWebsties: findAllWebsties,
+            findAllWebstiesForUser: findAllWebstiesForUser,
             findWebsitesByUser : findWebsitesByUser,
             findWebstieById : findWebstieById,
             updateWebstie : updateWebstie,
@@ -39,7 +39,7 @@
             //websites.push(website);
             return $http.post("/api/example/experiment/user/"+website.developerId+"/website", website);
         }
-        function findAllWebsties(uid){
+        function findAllWebstiesForUser(uid){
             return $http.get("/api/example/experiment/user/"+uid+"/website");
         }
 

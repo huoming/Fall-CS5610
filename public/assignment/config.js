@@ -4,38 +4,34 @@
         config(function($routeProvider){
             //console.log("in config");
             $routeProvider
-                /*.when("/profile", {
-                    templateUrl:"/examples/taskMng/profile.view.html",
-                    controller: "ProfileController"
-                })*/
                 .when("/login", {
-                    templateUrl:"/examples/taskMng/login.view.html",
+                    templateUrl:"/assignment/views/login.view.html",
                     controller: "LoginController",
                     controllerAs:"login"
                 })
                 .when("/register", {
-                    templateUrl:"/examples/taskMng/register.view.html",
+                    templateUrl:"/assignment/views/register.view.html",
                     controller: "RegisterController",
                     controllerAs:"register"
                 })
                 .when("/user/:uid", {
-                    templateUrl:"/examples/taskMng/profile.view.html",
+                    templateUrl:"/assignment/views/profile.view.html",
                     controller: "ProfileController",
                     controllerAs:"model"
                 })
                 .when("/user/:uid/website", {
-                    templateUrl:"/examples/taskMng/website.view.client.html",
-                    controller: "websiteListController",
+                    templateUrl:"/assignment/views/website-list.view.client.html",
+                    controller: "WebsiteListController",
                     controllerAs:"model"
                 })
                 .when("/user/:uid/website/new", {
-                    templateUrl:"/examples/taskMng/website-new.view.client.html",
-                    controller: "websiteNewController",
+                    templateUrl:"/assignment/views/website-new.view.client.html",
+                    controller: "NewWebsiteController",
                     controllerAs:"model"
                 })
                 .when("/user/:uid/website/:wid", {
-                    templateUrl:"/examples/taskMng/website-edit.view.client.html",
-                    controller: "websiteEditController",
+                    templateUrl:"/assignment/views/website-edit.view.client.html",
+                    controller: "EditWebsiteController",
                     controllerAs:"model"
                 })
                 .otherwise("/");

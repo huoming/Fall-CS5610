@@ -1,4 +1,4 @@
-module.exports=function(app) {
+module.exports=function(app, PageModel) {
 
     app.get('/api/example/experiment/user/:uid/website/:wid', getPageId);
 
@@ -8,6 +8,8 @@ module.exports=function(app) {
 
 
     function getPageId(req, res){
-        res.send("page");
+        var pid = req.params.pid;
+        var page = PageModel.findPageById(pid);
+        res.send(page);
     }
 }

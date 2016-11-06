@@ -13,28 +13,57 @@ module.exports=function(app, WebModel){
     function updateWebsite(req, res){
         var wid = req.params.wid;
         var website = req.body;
-        WebModel.updateWebsite(wid, website);
-
-        res.sendStatus(200);
+        WebModel
+        .updateWebsite(wid, website)
+        .then(function(retVal){
+            res.sendStatus(200);
+        },
+            function(err){
+                res.sendStatus(400).send(err);
+        });
     }
 
     function getAllWebsiteForUser(req, res){
         var uid = req.params.uid;
-        var websites = WebModel.findAllWebsitesForUser(uid);
-        console.log(websites);
-        res.send(websites);
+        
+        WebModel
+        .findAllWebsitesForUser(uid)
+        .then(function(retVal){
+            res.sendStatus(200).send(retVal);
+            console.log(retVal);
+        },
+            function(err){
+                res.sendStatus(400).send(err);
+        });
     }
 
     function getWebSitebyId (req, res){
         var webId = req.params.wid;
-        var web = WebModel.findWebsiteById(webId);
+        WebModel
+        .findWebsiteById(webId)
+        .then(function(retVal){
+            res.sendStatus(200).send(retVal);
+            console.log(retVal);
+        },
+            function(err){
+                res.sendStatus(400).send(err);
+        });
         res.send(web);
     }
 
     function createWebsite(req, res){
+        var uid = req.params.uid;
         var website = req.body;
-        WebModel.createWebsite(website);
+
+        WebModel
+        .createWebsite(uid, website)
+        .then(function(retVal){
+            res.sendStatus(200);
+            console.log(retVal);
+        },
+            function(err){
+                res.sendStatus(400).send(err);
+        });
         res.send(200);
     }
 }
-

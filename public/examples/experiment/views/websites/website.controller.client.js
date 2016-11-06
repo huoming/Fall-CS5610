@@ -14,13 +14,13 @@
         vm.loadCreateWebsitePage = loadCreateWebsitePage;
         vm.updateWebsites = updateWebsites;
 
-             function init(){
+        function init(){
                  //vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
-                 WebsiteService
-                     .findAllWebsties(vm.userId)
-                     .then(function(response){
+            WebsiteService
+                .findAllWebstiesForUser(vm.userId)
+                .then(function(response){
                          vm.websites = response.data;
-                     });
+                });
                  vm.status = "Edit Website";
                  vm.edit = true;
         }
