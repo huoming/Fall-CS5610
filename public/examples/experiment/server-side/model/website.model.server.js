@@ -2,7 +2,7 @@
 var websites = require("./websites.mock.json");
 var q = require("q");
 
-module.exports=function(){
+module.exports=function(mongoose, db, UserModel){
     //connect to mongo db
     var websiteSchema = require("./websites.schema.server.js")(mongoose);
     var websiteModel = mongoose.model("Website", websiteSchema);
@@ -25,14 +25,14 @@ module.exports=function(){
     */
 
     function findWebsiteById (webId){
-        /*for(var i=0; i<websites.length; i++){
+        for(var i=0; i<websites.length; i++){
             if(websites[i]._id == webId){
                 return websites[i];
             }
         }
         return null;*/
     
-        var deferred = q.defer();
+        /*var deferred = q.defer();
 
         websiteModel.findById(webId, function(err, retVal){
             if (err) {
@@ -43,18 +43,33 @@ module.exports=function(){
             }
         });
         return deferred.promise;
+        //return websiteModel.findById(webId);
 
     }
 
+//The $pushAll operator appends the specified values to an array.
     function createWebsiteForUser(userId, website){
         //websites.push(website); -- reference user
         var deferred = q.defer();
-
+        website._user = userId;
         websiteModel.create(website, function(err, retVal){
+            
             if (err) {
                 deferred.reject(err);
             }
             else{
+                UserModel
+                    .findUserById(userId)
+                    .update({_id:userId},{$pushAll: {_websites: [website._id]}})
+                    .then(
+                            function(response){
+
+                            },
+                            function(error){
+
+                            }
+                        );
+                        
                 deferred.resolve(retVal);
             }
         });
@@ -108,7 +123,7 @@ module.exports=function(){
     function deleteWebsite(websiteId){
         var deferred = q.defer();
 
-        websiteModel.remove(websiteId, function(err, retVal){
+        websiteModel.remove({_id: websiteId}, function(err, retVal){
             if (err) {
                 deferred.reject(err);
             }

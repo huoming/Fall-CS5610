@@ -7,7 +7,7 @@ var q = require("q");
 module.exports=function(mongoose, db){
 
     var userSchema = require("./user.schema.server.js")(mongoose);
-    var userModel = mongoose.model("userModel", userSchema);
+    var userModel = mongoose.model("User", userSchema);
 
     //var userModel = require("./user.schema.server.js")(mongoose);
 
@@ -18,7 +18,9 @@ module.exports=function(mongoose, db){
         updateUserById: updateUserById,
         deleteUserById: deleteUserById,
         findUserByUsername: findUserByUsername,
-        findUserByCredentials: findUserByCredentials
+        findUserByCredentials: findUserByCredentials,
+        UpdateWebsites: UpdateWebsites,
+        AddWebsite: AddWebsite
     };
     return api;
 
@@ -69,7 +71,7 @@ module.exports=function(mongoose, db){
         return deferred.promise;
     }
 
-    function findUserById(id)
+    function findUserById(user_id)
     {
        /* var user = null;
         for (var i = 0; i < users.length; i++) {
@@ -82,7 +84,7 @@ module.exports=function(mongoose, db){
         //return users;
         var deferred = q.defer();
 
-        userModel.findById(id, function(err, retVal){
+        userModel.findById(user_id, function(err, retVal){
             if (err) {
                 deferred.reject(err);
             }
@@ -163,7 +165,7 @@ module.exports=function(mongoose, db){
 
         userModel.findOne({username: username}, function(err, retVal){
             if (err) {
-                deferred.reject(err);
+                deferred.reject(err);                
             }
             else{
                 deferred.resolve(retVal);
@@ -196,5 +198,27 @@ module.exports=function(mongoose, db){
             }
         });
         return deferred.promise;
+    }
+
+    function UpdateWebsites(website){
+        findUserById(website._developer)
+        .then(function(user){
+            userModel.update({$pushAll: {websites: [website._id]}})
+            .then(function(stat) {
+                        console.log(stat);
+                    },
+                    function(error) {
+                        console.log(error);
+                    })
+        });
+                        
+    }
+
+    function AddWebsite(website){
+        userModel
+            .update(
+                {_id: website._user},
+                {$pushAll : { websites : [website]}}
+            );
     }
 }

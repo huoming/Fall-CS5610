@@ -20,6 +20,6 @@ module.exports=function(app) {
 
         console.log(path);
 
-        res.sendStatus(200);
+        res.sendStatus(200).send(myFile);
     }
 }

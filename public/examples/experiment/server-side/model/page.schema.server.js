@@ -1,6 +1,7 @@
 module.exports=fuction(mongoose){
 	
 	var widgetSchema = require("./widgets.schema.server.js")(mongoose);
+	
 	var pageSchema = mongoose.Schema({
 		_website: {
 			type: mongoose.Schema.Types.ObjectId,

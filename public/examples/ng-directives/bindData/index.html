@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TemplateUrlBindData">
+<head>
+    <meta charset="UTF-8">
+    <title>Directive URL</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+
+    <link href="jga.css" rel="stylesheet"/>
+    <script src="jgaTable.js"></script>
+    <script src="app.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div ng-controller="tableController">
+        <jga-table-example caption="Table" border="1" data="users" ></jga-table-example>
+    </div>
+</div>
+
+</body>
+</html>

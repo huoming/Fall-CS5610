@@ -8,8 +8,20 @@ module.exports=fuction(mongoose){
 		lastName: String,
 		email: String,
 		phone: String,
-		websites: [webSchema],
-		dateCreated: {type: Date, default: Date.now}
+		//websites: [webSchema],
+		_website: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Website'
+		},
+		dateCreated: {type: Date, default: Date.now},
+		google:   {
+            id:    String,
+            token: String
+        },
+        facebook:   {
+            id:    String,
+            token: String
+        }
 	});
 
 	//return mongoose.model("User", userSchema);
