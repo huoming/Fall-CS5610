@@ -46,6 +46,42 @@ module.exports = function(app, UserModel){
         }
     };*/
 
+// Use the GoogleStrategy within Passport.
+//   Strategies in Passport require a `verify` function, which accept
+//   credentials (in this case, an accessToken, refreshToken, and Google
+//   profile), and invoke a callback with a user object.
+    passport.use(new GoogleStrategy({
+        clientID: GOOGLE_CLIENT_ID,
+        clientSecret: GOOGLE_CLIENT_SECRET,
+        callbackURL: "http://localhost:3000/auth/google/callback"
+      },
+      function(accessToken, refreshToken, profile, done) {
+           userModel
+            .findOrCreateUser(profile)
+            .then(function(user){
+                if(user){
+                    return done(null, user);
+                }else{ //create a new user in db
+                    var email = profile.emails[0].value;
+                    var newUser={
+                        username: emails.split("@")[0],
+                        firstName: profile.name.givenName,
+                        lastName: profile.name.familyName,
+                        google: {
+                            id: profile.id,
+                            token: accessToken
+                        }
+                    };
+                    return userModel.createUser(newUser);
+                }
+            },
+            function(err){
+
+            });
+      }
+    ));
+
+
     function serializeUser(user, done) {
         delete user.password;
         done(null, user);
